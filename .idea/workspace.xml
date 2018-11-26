@@ -2,53 +2,237 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b1a0b0a-6c71-4dd1-9f53-6be53ca17a7e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/auth.dart" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/auth_provider.dart" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/model/user_manage.dart" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build/app.dill" afterPath="$PROJECT_DIR$/build/app.dill" />
-      <change beforePath="$PROJECT_DIR$/build/flutter_assets/LICENSE" afterPath="$PROJECT_DIR$/build/flutter_assets/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/build/flutter_assets/kernel_blob.bin" afterPath="$PROJECT_DIR$/build/flutter_assets/kernel_blob.bin" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GTMOAuth2ViewTouch.nib" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GTMOAuth2ViewTouch.nib" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/LICENSE" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/kernel_blob.bin" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/kernel_blob.bin" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/libfirebase_auth.a" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/libfirebase_auth.a" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/libfirebase_core.a" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/libfirebase_core.a" />
-      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/libPods-Runner.a" afterPath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/libPods-Runner.a" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GTMOAuth2ViewTouch.nib" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GTMOAuth2ViewTouch.nib" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/LICENSE" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/kernel_blob.bin" afterPath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/kernel_blob.bin" />
-      <change beforePath="$PROJECT_DIR$/build/ios/pod_inputs.fingerprint" afterPath="$PROJECT_DIR$/build/ios/pod_inputs.fingerprint" />
-      <change beforePath="$PROJECT_DIR$/build/snapshot_blob.bin.d" afterPath="$PROJECT_DIR$/build/snapshot_blob.bin.d" />
-      <change beforePath="$PROJECT_DIR$/build/snapshot_blob.bin.d.fingerprint" afterPath="$PROJECT_DIR$/build/snapshot_blob.bin.d.fingerprint" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_assets/LICENSE" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_assets/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_assets/kernel_blob.bin" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_assets/kernel_blob.bin" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" afterPath="$PROJECT_DIR$/ios/Podfile.lock" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/FirebaseAuth.xcscheme" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/FirebaseAuth.xcscheme" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/FirebaseCore.xcscheme" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/FirebaseCore.xcscheme" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/GTMSessionFetcher.xcscheme" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/GTMSessionFetcher.xcscheme" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/GoogleUtilities.xcscheme" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/GoogleUtilities.xcscheme" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/Pods-Runner.xcscheme" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/Pods-Runner.xcscheme" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/nanopb.xcscheme" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/nanopb.xcscheme" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/yaeger.xcuserdatad/xcschemes/xcschememanagement.plist" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-acknowledgements.markdown" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-acknowledgements.markdown" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-acknowledgements.plist" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-acknowledgements.plist" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-resources.sh" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner-resources.sh" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth.xcconfig" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_auth/firebase_auth.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core.xcconfig" afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/firebase_core/firebase_core.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/contents.xcworkspacedata" afterPath="$PROJECT_DIR$/ios/Runner.xcworkspace/contents.xcworkspacedata" />
-      <change beforePath="$PROJECT_DIR$/lib/login.dart" afterPath="$PROJECT_DIR$/lib/login.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" afterPath="$PROJECT_DIR$/lib/main.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/model/game_provider.dart" afterPath="$PROJECT_DIR$/lib/model/game_provider.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/model/user.dart" afterPath="$PROJECT_DIR$/lib/model/user.dart" />
+      <change beforePath="$PROJECT_DIR$/build/app.dill" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/app.dill.incremental.dill" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/AssetManifest.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/FontManifest.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/font/Saira/Saira-Bold.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/font/Saira/Saira-Light.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/font/Saira/Saira-Medium.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/font/Saira/Saira-Regular.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/font/Saira/Saira-Thin.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/fonts/MaterialIcons-Regular.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/isolate_snapshot_data" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/kernel_blob.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/platform_strong.dill" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/vm_snapshot_data" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/frontend_server.d" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/FirebaseAuth/libFirebaseAuth.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/FirebaseCore/libFirebaseCore.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/GTMOAuth2/libGTMOAuth2.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/GTMSessionFetcher/libGTMSessionFetcher.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/GoogleToolboxForMac/libGoogleToolboxForMac.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/GoogleUtilities/libGoogleUtilities.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppFrameworkInfo.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon20x20@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon20x20@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon20x20@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon20x20~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon29x29.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon29x29@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon29x29@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon29x29@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon29x29~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon40x40@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon40x40@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon40x40@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon40x40~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon60x60@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon60x60@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon76x76@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon76x76~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/AppIcon83.5x83.5@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Assets.car" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/LaunchScreen.storyboardc/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/Main.storyboardc/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Debug.xcconfig" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework/Flutter" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework/_CodeSignature/CodeResources" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/Flutter.framework/icudtl.dat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GTMOAuth2ViewTouch.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleService-Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/Roboto-Bold.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/ar.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/ca.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/cs.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/da.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/de.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/el.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/en.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/en_GB.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/es.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/es_MX.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/fi.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/fr.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/fr_CA.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/google.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/google@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/google@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/he.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/hi.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/hr.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/hu.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/id.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/it.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/ja.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/ko.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/ms.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/nb.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/nl.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/pl.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/pt.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/pt_BR.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/pt_PT.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/ro.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/ru.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/sk.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/sv.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/th.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/tr.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/uk.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/vi.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/zh_CN.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/GoogleSignIn.bundle/zh_TW.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/PkgInfo" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/Runner" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/AssetManifest.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/FontManifest.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Bold.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Light.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Medium.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Regular.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Thin.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/fonts/MaterialIcons-Regular.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/isolate_snapshot_data" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/kernel_blob.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/platform_strong.dill" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/vm_snapshot_data" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_auth/libfirebase_auth.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/firebase_core/libfirebase_core.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/flutter_picker/libflutter_picker.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/google_sign_in/libgoogle_sign_in.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/image_picker/libimage_picker.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/libPods-Runner.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Debug-iphonesimulator/nanopb/libnanopb.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Runner.build/Release-iphoneos/Runner.build/dgph" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppFrameworkInfo.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon20x20@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon20x20@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon20x20@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon20x20~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon29x29.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon29x29@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon29x29@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon29x29@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon29x29~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon40x40@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon40x40@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon40x40@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon40x40~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon60x60@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon60x60@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon76x76@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon76x76~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/AppIcon83.5x83.5@2x~ipad.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Assets.car" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Base.lproj/LaunchScreen.storyboardc/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Base.lproj/Main.storyboardc/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Debug.xcconfig" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/Flutter.framework/Flutter" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/Flutter.framework/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/Flutter.framework/_CodeSignature/CodeResources" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Frameworks/Flutter.framework/icudtl.dat" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GTMOAuth2ViewTouch.nib" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleService-Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/Roboto-Bold.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/ar.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/ca.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/cs.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/da.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/de.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/el.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/en.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/en_GB.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/es.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/es_MX.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/fi.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/fr.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/fr_CA.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/google.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/google@2x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/google@3x.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/he.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/hi.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/hr.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/hu.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/id.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/it.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/ja.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/ko.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/ms.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/nb.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/nl.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/pl.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/pt.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/pt_BR.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/pt_PT.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/ro.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/ru.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/sk.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/sv.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/th.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/tr.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/uk.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/vi.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/zh_CN.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/GoogleSignIn.bundle/zh_TW.lproj/GoogleSignIn.strings" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Info.plist" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/PkgInfo" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/Runner" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/AssetManifest.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/FontManifest.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Bold.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Light.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Medium.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Regular.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/font/Saira/Saira-Thin.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/fonts/MaterialIcons-Regular.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/isolate_snapshot_data" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/kernel_blob.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/platform_strong.dill" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/iphonesimulator/Runner.app/flutter_assets/vm_snapshot_data" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/ios/pod_inputs.fingerprint" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/last_build_run.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/snapshot_blob.bin.d" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/snapshot_blob.bin.d.fingerprint" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -78,8 +262,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="432">
+              <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -827,8 +1011,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
           <folding />
         </state>
       </provider>
