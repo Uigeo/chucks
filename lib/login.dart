@@ -1,39 +1,31 @@
 import 'dart:async';
-
+import 'package:chucks/auth.dart';
+import 'package:chucks/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 
-class LoginPage extends StatelessWidget{
+class LoginPage extends StatefulWidget {
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = new GoogleSignIn();
 
-  Future<FirebaseUser> _signIn() async{
-    GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-    GoogleSignInAuthentication gSA = await googleSignInAccount.authentication;
+  final VoidCallback onSignedIn;
 
-    FirebaseUser user = await _auth.signInWithGoogle(
-        idToken: gSA.idToken, accessToken: gSA.accessToken);
+  LoginPage({this.onSignedIn});
 
-    print("User Name: ${user.displayName}");
-    return user;
+  @override
+  _LoginPageState createState() {
+    return _LoginPageState();
   }
 
+}
 
-  void _singOut(){
-    googleSignIn.signOut();
-    print("User Signed Out");
-  }
-
+class _LoginPageState extends State<LoginPage>{
 
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Scaffold(
-
       body: Container(
         // Add box decoration
         decoration: BoxDecoration(
@@ -97,12 +89,12 @@ class LoginPage extends StatelessWidget{
                         letterSpacing: 0.3,
                       ),
                     ),
-                    onPressed: () => _signIn()
+                    onPressed: () => AuthProvider.of(context).auth.signIn()
                         .then(
                             (FirebaseUser user) {
-                              print(user);
-                              Navigator.pop(context);
-                            })
+                          print(user);
+                          Navigator.pop(context);
+                        })
                         .catchError((e)=>print(e)),
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
                 ),
@@ -110,25 +102,11 @@ class LoginPage extends StatelessWidget{
                 new Padding(
                   padding: const EdgeInsets.all(10.0),
                 ),
-                new OutlineButton(
-                    child: new Text(
-                      "Sign Out",
-                      style: new TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 0.3,
-                      ),
-                    ),
-                    onPressed: _singOut,
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
-                ),
-
-
               ],
             )
         ),
       ),
     );
   }
+
 }

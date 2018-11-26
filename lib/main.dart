@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:chucks/auth.dart';
 import 'package:chucks/login.dart';
 import 'package:flutter/material.dart';
 import 'package:chucks/current_history.dart';
@@ -7,6 +8,7 @@ import 'package:chucks/mypage.dart';
 import 'package:chucks/notification.dart';
 import 'package:chucks/rank.dart';
 import 'package:chucks/victory.dart';
+import 'package:chucks/auth_provider.dart';
 
 void main() => runApp(new MyApp());
 
@@ -14,27 +16,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
-        // counter didn't reset back to zero; the application is not restarted.
-        fontFamily: 'SairaR',
-        primarySwatch: Colors.blue,
-      ),
-      routes: <String, WidgetBuilder> {
-        '/login' : (BuildContext context) => new LoginPage(),
-      },
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
-      initialRoute: '/login',
-      onGenerateRoute: _getRoute,
+    return AuthProvider(
+      auth: Auth(),
+      child: new MaterialApp(
+        title: 'Flutter Demo',
+        theme: new ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
+          // counter didn't reset back to zero; the application is not restarted.
+          fontFamily: 'SairaR',
+          primarySwatch: Colors.blue,
+        ),
+        routes: <String, WidgetBuilder> {
+          '/login' : (BuildContext context) => new LoginPage(),
+        },
+        home: new MyHomePage(title: 'Flutter Demo Home Page'),
+        initialRoute: '/login',
+        onGenerateRoute: _getRoute,
 
+      ),
     );
   }
 
@@ -52,17 +57,14 @@ class MyApp extends StatelessWidget {
 
 }
 
+enum AuthStatus {
+  notDetermined,
+  notSignedIn,
+  signedIn
+}
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -74,11 +76,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final _scaffoldKey = new GlobalKey<ScaffoldState>();
   VoidCallback _showPersBottomSheetCallBack;
+  AuthStatus authStatus = AuthStatus.notDetermined;
 
 
   Timer _timer;
   DateTime _currentTime;
 
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    var auth = AuthProvider.of(context).auth;
+    auth.currentUser().then( (user){
+      setState(() {
+        authStatus =
+        user == null ? AuthStatus.notSignedIn : AuthStatus.signedIn;
+      });
+    } );
+  }
 
   @override
   void initState() {

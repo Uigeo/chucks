@@ -142,7 +142,7 @@
 		</data>
 		<key>GTMOAuth2ViewTouch.nib</key>
 		<data>
-		wlPiaFfTc17PgV64inyBnou5/js=
+		ID6zpk1mbKRwrwcaCrV5Ok2pKBQ=
 		</data>
 		<key>GoogleService-Info.plist</key>
 		<data>
@@ -528,7 +528,7 @@
 		</data>
 		<key>flutter_assets/LICENSE</key>
 		<data>
-		s21j7KwVnDu6Up1MPHnJD1D/ee4=
+		Q2I0cUXqgtsHR+5K8WQPdTvaZHg=
 		</data>
 		<key>flutter_assets/font/Saira/Saira-Bold.ttf</key>
 		<data>
@@ -560,7 +560,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		bHhHynl4KMPkrL7AwuZ1BqnTcGE=
+		NQE/Jzecfk2oTxBKyedIqif8jkI=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -573,6 +573,14 @@
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
 		XEAwGr+YzcuvFF6I3A7EV/I6J4E=
+		</data>
+		<key>gRPCCertificates.bundle/Info.plist</key>
+		<data>
+		OAbSWAridSUO42KkRCgsW7z/SnE=
+		</data>
+		<key>gRPCCertificates.bundle/roots.pem</key>
+		<data>
+		5NFWUZRVI0qqLVcZd3qjE3hlVc0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -955,11 +963,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wlPiaFfTc17PgV64inyBnou5/js=
+			ID6zpk1mbKRwrwcaCrV5Ok2pKBQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			hjHVWHTyNtwIjlffcSgwybl2qOZc45/hOiqLdMvqxsw=
+			scf5/k9xBT5BvbG7YGbPxRy6cwQypzYw50lv9lKbQ8Q=
 			</data>
 		</dict>
 		<key>GoogleService-Info.plist</key>
@@ -1548,11 +1556,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s21j7KwVnDu6Up1MPHnJD1D/ee4=
+			Q2I0cUXqgtsHR+5K8WQPdTvaZHg=
 			</data>
 			<key>hash2</key>
 			<data>
-			EISUiaJcHpTUpCbzhO4JvjlfPmR35w6PaO2/b0gknXA=
+			Ivbar1LODwMbFK9wuHXS6mx+xFbKIJl1bH9/yUdQMNc=
 			</data>
 		</dict>
 		<key>flutter_assets/font/Saira/Saira-Bold.ttf</key>
@@ -1636,11 +1644,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bHhHynl4KMPkrL7AwuZ1BqnTcGE=
+			NQE/Jzecfk2oTxBKyedIqif8jkI=
 			</data>
 			<key>hash2</key>
 			<data>
-			n34nXBxOopZ1BdL1aq/g+LUvXHESx68mAopkowfeEMM=
+			ZcjP9A4ssDde71d9v76bLnv0NxTm/8OJ/5pgdOoHPdU=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1674,6 +1682,28 @@
 			<key>hash2</key>
 			<data>
 			5yByl2mKu1Apf4gpCIAx87WD/tg2r3MqKJkG72r/b5M=
+			</data>
+		</dict>
+		<key>gRPCCertificates.bundle/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OAbSWAridSUO42KkRCgsW7z/SnE=
+			</data>
+			<key>hash2</key>
+			<data>
+			yVdP4E0zPo9iO4kmJRandu4N76EToQmKOQgAULavs24=
+			</data>
+		</dict>
+		<key>gRPCCertificates.bundle/roots.pem</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5NFWUZRVI0qqLVcZd3qjE3hlVc0=
+			</data>
+			<key>hash2</key>
+			<data>
+			WgTeHMtYkCcLHLPJ1tUjW7Kze0FHs9skfJumMURZZmE=
 			</data>
 		</dict>
 	</dict>
