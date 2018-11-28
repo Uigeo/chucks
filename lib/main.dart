@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:chucks/auth.dart';
 import 'package:chucks/login.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:chucks/current_history.dart';
 import 'package:chucks/gameplay.dart';
@@ -101,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _showPersBottomSheetCallBack = _showPersBottomSheet;
     _currentTime = DateTime.now();
     _timer = Timer.periodic(Duration(seconds: 1), _onTimeChange);
+
   }
 
   void _showPersBottomSheet(){
@@ -229,8 +231,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 shape: BoxShape.circle,
                                 image: new DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: new NetworkImage(
-                                        'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg')
+                                    image: new NetworkImage(AuthProvider.of(context).auth.imgUrl ??"")
+
                                 )
                             )),
                         SizedBox(width: 15.0,),
@@ -239,8 +241,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("MyThumbs", style: TextStyle(fontFamily: 'SairaB', fontSize: 20.0),),
-                              Text("Victory  3times", style: TextStyle(fontFamily: 'SairaM', fontSize: 15.0), ),
+                              Text(AuthProvider.of(context).auth.displayName ?? "", style: TextStyle(fontFamily: 'SairaB', fontSize: 20.0),),
+                              Text("Total Pirze " + AuthProvider.of(context).auth.prize.toString() , style: TextStyle(fontFamily: 'SairaM', fontSize: 15.0), ),
                             ],
                           ),
                         ),
@@ -280,6 +282,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).push(MaterialPageRoute(builder: (_)=>VictoryPage()));
                 },),
                 ListTile(leading: Icon(Icons.help), title: Text('FAQ') ,onTap: (){},),
+                ListTile(leading: Icon(Icons.exit_to_app), title: Text('Log Out') ,onTap: (){ 
+                  AuthProvider.of(context).auth.singOut(); 
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginPage()));
+                  },),
                 ListTile(leading: Icon(Icons.settings), title: Text('Preperence') ,onTap: (){},),
               ],
             ),

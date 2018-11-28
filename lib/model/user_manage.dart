@@ -9,10 +9,12 @@ class UserManager {
 
   final String defaultImgUrl = 'https://firebasestorage.googleapis.com/v0/b/chucks-da9d1.appspot.com/o/UserProfile%2Fcom.bandot.sagon.circle.darkiconpack.png?alt=media&token=db968de6-2709-4b5f-93a6-e189b18b2cf9';
 
-  Future<DocumentReference> newUser(FirebaseUser user){
+  void newUser(FirebaseUser user){
     FirebaseAuth.instance.currentUser().then(
         (user){
-          return Firestore.instance.collection('users').add({
+          print("HEL");
+          print(user);
+           Firestore.instance.collection('users').add({
             'FirebaseUser' : user,
             'displayName' : user.displayName,
             'imgUrl' : defaultImgUrl,
@@ -20,6 +22,13 @@ class UserManager {
           });
         }
     );
+  }
+
+  GameUser getUser(String uid){
+   Future<QuerySnapshot> snapshot =  Firestore.instance.collection('users').where( 'uid', isEqualTo: uid ).getDocuments();
+   snapshot.then(
+       (users){return users.documents.elementAt(0).data;}
+   );
   }
 
   void updateUser(DocumentReference user,  String imgUrl){

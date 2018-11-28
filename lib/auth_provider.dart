@@ -14,6 +14,4 @@ class AuthProvider extends InheritedWidget {
     return (context.inheritFromWidgetOfExactType(AuthProvider) as AuthProvider);
   }
 
-
-
 }

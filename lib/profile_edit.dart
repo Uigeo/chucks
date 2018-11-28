@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:chucks/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_picker/flutter_picker.dart';
@@ -50,11 +51,12 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
               ],
             ),
             SizedBox(height: 30.0,),
+            Text('Display Name', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
             TextFormField(
-              initialValue: "MyThumbs",
+              initialValue: AuthProvider.of(context).auth.displayName ?? "DisplayName",
             ),
             SizedBox(height: 50.0,),
-            Text('More Info', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
+            Text('Phone #', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
             Container(
               padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
               decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey)) ),
@@ -69,19 +71,6 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
               ),
             ),
 
-            Container(
-              padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
-              decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey)) ),
-              child: InkWell(
-                onTap: (){ showBornYearPicker(context); },
-                child: Row(
-                  children: <Widget>[
-                    Expanded(child: Text('Born Yaer', style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0))),
-                    Text(selectedBornyear.toString()  + ' Y ' , style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0 )),
-                  ],
-                ),
-              ),
-            ),
             SizedBox(height: 20.0,),
             Row(
               children: <Widget>[
@@ -121,7 +110,8 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
               textAlign: TextAlign.center,
             );
           } else {
-            return _circleNetworkImage('https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg');
+            return _circleNetworkImage( AuthProvider.of(context).auth.imgUrl ??
+            'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg');
           }
         });
   }
