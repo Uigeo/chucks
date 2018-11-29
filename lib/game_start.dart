@@ -1,4 +1,5 @@
 import 'package:chucks/auth_provider.dart';
+import 'package:chucks/gameplay.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +30,12 @@ class _GameStartButtonState extends State<GameStartButton> {
   Widget build(BuildContext context) {
     return RaisedButton(
       color: Colors.pinkAccent,
-      onPressed:  gameCreated ? gameStarting ?  :
-          : (){ Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) ); },
+      onPressed:  gameCreated ? gameStarting ? (){ Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) ); }
+                      : null
+          : (){
+            _createGame();
+            Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) );
+            },
       child: widget.currentTime.minute < 1 ? Text('Waiting', style: TextStyle(
           fontFamily: 'SairaR',
           color: Colors.white,
@@ -42,16 +47,17 @@ class _GameStartButtonState extends State<GameStartButton> {
           fontSize: 18.0
       ),
       ),
-    ),
+    );
   }
 
-  _createGame(){
-    Firestore.instance.collection('games').add(
+  _createGame() async {
+    await Firestore.instance.collection('games').add(
       {
         'start' : DateTime.now(),
         'end' : DateTime.now().add(Duration(minutes: 3)),
-        'hostuid' : AuthProvider.of(context).auth.uid,
-
+        'hostuid' : AuthProvider.of(context).auth.user.uid,
+        'participant' : [],
+        'winner' : [],
       }
     );
   }

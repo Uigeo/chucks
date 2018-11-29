@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:chucks/profile_edit.dart';
 
 class MyPrizePage extends StatefulWidget {
   @override

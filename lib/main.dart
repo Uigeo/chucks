@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:chucks/auth.dart';
 import 'package:chucks/login.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:chucks/current_history.dart';
 import 'package:chucks/gameplay.dart';
@@ -231,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 shape: BoxShape.circle,
                                 image: new DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: new NetworkImage(AuthProvider.of(context).auth.imgUrl ??"")
+                                    image: new NetworkImage(AuthProvider.of(context).auth.user.imgUrl ??"")
 
                                 )
                             )),
@@ -241,8 +240,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(AuthProvider.of(context).auth.displayName ?? "", style: TextStyle(fontFamily: 'SairaB', fontSize: 20.0),),
-                              Text("Total Pirze " + AuthProvider.of(context).auth.prize.toString() , style: TextStyle(fontFamily: 'SairaM', fontSize: 15.0), ),
+                              Text(AuthProvider.of(context).auth.user.displayName ?? "", style: TextStyle(fontFamily: 'SairaB', fontSize: 20.0),),
+                              Text("Total Pirze " + AuthProvider.of(context).auth.user.prize.toString() , style: TextStyle(fontFamily: 'SairaM', fontSize: 15.0), ),
                             ],
                           ),
                         ),

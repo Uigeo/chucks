@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:chucks/model/user.dart';
-import 'package:chucks/model/user_manage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -11,13 +10,7 @@ final String defaultImgUrl = 'https://firebasestorage.googleapis.com/v0/b/chucks
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
-  String uid;
-  String imgUrl;
-  String displayName;
-  String email;
-  String phone;
-  int prize;
-  DocumentReference ref;
+  GameUser user;
 
 
   Future<FirebaseUser> signIn() async{
@@ -43,29 +36,26 @@ class Auth {
                   });
                 }
             );
-            imgUrl = defaultImgUrl;
-            email = user.email;
-            uid = user.uid;
-            prize = 0;
-            displayName = user.displayName;
           }
-          else{
-            print("Old User");
-            Future<QuerySnapshot> snapshot =  Firestore.instance.collection('users').where( 'uid', isEqualTo: user.uid ).getDocuments();
-            snapshot.then(
-                    (users){ users.documents.elementAt(0).data.forEach(
-                        (key, v){
-                          print(key + " : "+ v.toString());
-                          if(key == 'uid') uid = v;
-                          else if(key == 'email') email = v;
-                          else if(key == 'displayName') displayName = v;
-                          else if(key == 'imgUrl') imgUrl = v;
-                          else if(key == 'prize') prize = v;
-                          else if(key == 'phone') phone = v;
-                        }
-                    );}
-            );
-          }
+
+          print("Get User info");
+          Future<QuerySnapshot> snapshot =  Firestore.instance.collection('users').where( 'uid', isEqualTo: user.uid ).getDocuments();
+          snapshot.then(
+                  (users){
+                     this.user = GameUser.fromSnapshot(users.documents.elementAt(0));
+                  //forEach(
+//                        (key, v){
+//                          print(key + " : "+ v.toString());
+//                          if(key == 'uid') uid = v;
+//                          else if(key == 'email') email = v;
+//                          else if(key == 'displayName') displayName = v;
+//                          else if(key == 'imgUrl') imgUrl = v;
+//                          else if(key == 'prize') prize = v;
+//                          else if(key == 'phone') phone = v;
+//                        }
+                  }
+          );
+
         }
     );
 

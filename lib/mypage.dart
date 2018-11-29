@@ -32,7 +32,7 @@ class _MyPageState extends State<MyPage> {
                 Expanded(child: Column(
                   crossAxisAlignment : CrossAxisAlignment.start ,
                   children: <Widget>[
-                    Text( AuthProvider.of(context).auth.displayName ?? 'NULL', style: TextStyle(fontFamily: 'SairaM', fontSize: 25.0 ),),
+                    Text( AuthProvider.of(context).auth.user.displayName ?? 'NULL', style: TextStyle(fontFamily: 'SairaM', fontSize: 25.0 ),),
                     InkWell(
                         onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ProfileEditPage())); },
                         child: Text('Change Profile',
@@ -51,7 +51,7 @@ class _MyPageState extends State<MyPage> {
                         image: new DecorationImage(
                             fit: BoxFit.fill,
                             image: new NetworkImage(
-                              AuthProvider.of(context).auth.imgUrl ??
+                              AuthProvider.of(context).auth.user.imgUrl ??
                                 'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg')
                         )
                     )),
@@ -68,7 +68,7 @@ class _MyPageState extends State<MyPage> {
                     child: Row(
                       children: <Widget>[
                         Expanded(child: Text('My Prize', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                        Text('\$ '+ AuthProvider.of(context).auth.prize.toString(), style: TextStyle(fontFamily: 'SairaR', fontSize: 18.0 )),
+                        Text('\$ '+ AuthProvider.of(context).auth.user.prize.toString(), style: TextStyle(fontFamily: 'SairaR', fontSize: 18.0 )),
                         Icon(Icons.chevron_right)
                       ],
                     ),
@@ -80,7 +80,7 @@ class _MyPageState extends State<MyPage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(child: Text('Phone #', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                      Text( AuthProvider.of(context).auth.phone ?? "No Phone #" , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
+                      Text( AuthProvider.of(context).auth.user.phone ?? "No Phone #" , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
                     ],
                   ),
                 ),
@@ -90,7 +90,7 @@ class _MyPageState extends State<MyPage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(child: Text('E-Mail', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                      Text( AuthProvider.of(context).auth.email ?? 'Email' , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
+                      Text( AuthProvider.of(context).auth.user.email ?? 'Email' , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
                     ],
                   ),
                 ),
@@ -100,7 +100,7 @@ class _MyPageState extends State<MyPage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(child: Text('Recommand Code', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                      Text( AuthProvider.of(context).auth.uid.substring(20) ?? "NULL", style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
+                      Text( AuthProvider.of(context).auth.user.uid.substring(20) ?? "NULL", style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
                     ],
                   ),
                 ),

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:chucks/auth_provider.dart';
@@ -53,7 +52,7 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
             SizedBox(height: 30.0,),
             Text('Display Name', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
             TextFormField(
-              initialValue: AuthProvider.of(context).auth.displayName ?? "DisplayName",
+              initialValue: AuthProvider.of(context).auth.user.displayName ?? "DisplayName",
             ),
             SizedBox(height: 50.0,),
             Text('Phone #', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
@@ -110,7 +109,7 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
               textAlign: TextAlign.center,
             );
           } else {
-            return _circleNetworkImage( AuthProvider.of(context).auth.imgUrl ??
+            return _circleNetworkImage( AuthProvider.of(context).auth.user.imgUrl ??
             'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg');
           }
         });
