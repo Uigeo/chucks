@@ -6,10 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
 
-
-  final VoidCallback onSignedIn;
-
   LoginPage({this.onSignedIn});
+  final VoidCallback onSignedIn;
 
   @override
   _LoginPageState createState() {
@@ -91,7 +89,7 @@ class _LoginPageState extends State<LoginPage>{
                         .then(
                             (FirebaseUser user) {
                           print(user);
-                          Navigator.pop(context);
+                          widget.onSignedIn();
                         })
                         .catchError((e)=>print(e)),
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))

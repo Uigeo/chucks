@@ -5,7 +5,7 @@ class GameHistory {
 
   final DocumentReference ref;
   final DocumentReference gameRef;
-  final int myFingers;
+  final int fingers;
   final int prize;
   final int answer;
   final bool win;
@@ -17,6 +17,6 @@ class GameHistory {
       : gameRef = map['gameRef'],
         prize = map['prize'],
         win = map['win'],
-        myFingers = map['imgUrl'],
+        fingers = map['fingers'],
         answer = map['answer'];
 }

@@ -10,8 +10,7 @@ final String defaultImgUrl = 'https://firebasestorage.googleapis.com/v0/b/chucks
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
-  GameUser user;
-
+  GameUser gameUser;
 
   Future<FirebaseUser> signIn() async{
     GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
@@ -28,7 +27,7 @@ class Auth {
                     (user){
                   Firestore.instance.collection('users').add({
                     'uid' : user.uid,
-                    'phone' : user.phoneNumber,
+                    'phone' : 'No phone',
                     'email' : user.email,
                     'displayName' : user.displayName,
                     'imgUrl' : defaultImgUrl,
@@ -37,39 +36,28 @@ class Auth {
                 }
             );
           }
-
-          print("Get User info");
-          Future<QuerySnapshot> snapshot =  Firestore.instance.collection('users').where( 'uid', isEqualTo: user.uid ).getDocuments();
-          snapshot.then(
-                  (users){
-                     this.user = GameUser.fromSnapshot(users.documents.elementAt(0));
-                  //forEach(
-//                        (key, v){
-//                          print(key + " : "+ v.toString());
-//                          if(key == 'uid') uid = v;
-//                          else if(key == 'email') email = v;
-//                          else if(key == 'displayName') displayName = v;
-//                          else if(key == 'imgUrl') imgUrl = v;
-//                          else if(key == 'prize') prize = v;
-//                          else if(key == 'phone') phone = v;
-//                        }
-                  }
-          );
-
         }
     );
 
-    print("User Name: ${user.displayName}");
+    QuerySnapshot q = await Firestore.instance.collection('users').where('uid', isEqualTo:  user.uid).getDocuments();
+    this.gameUser = GameUser.fromSnapshot(q.documents.first);
+
+
+    print("User Name: ${this.gameUser.email}");
     return user;
   }
+
 
   Future<void> singOut(){
     googleSignIn.signOut();
     print("User Signed Out");
   }
 
-  Future<FirebaseUser> currentUser() async {
+  Future<String> currentUser() async {
+
     FirebaseUser user = await _firebaseAuth.currentUser();
-    return user;
+    QuerySnapshot q = await Firestore.instance.collection('users').where('uid', isEqualTo:  user.uid).getDocuments();
+    this.gameUser = GameUser.fromSnapshot(q.documents.first);
+    return user?.uid;
   }
 }

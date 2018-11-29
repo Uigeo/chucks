@@ -1,4 +1,6 @@
 import 'package:chucks/auth_provider.dart';
+import 'package:chucks/model/game.dart';
+import 'package:chucks/model/user.dart';
 import 'package:chucks/myprize.dart';
 import 'package:chucks/profile_edit.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,11 @@ class MyPage extends StatefulWidget {
 class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
+    GameUser user = AuthProvider.of(context).auth.gameUser;
+    return _buildbody(context, user);
+  }
+
+  Widget _buildbody(BuildContext context, user){
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white.withOpacity(0.0),
@@ -32,7 +39,7 @@ class _MyPageState extends State<MyPage> {
                 Expanded(child: Column(
                   crossAxisAlignment : CrossAxisAlignment.start ,
                   children: <Widget>[
-                    Text( AuthProvider.of(context).auth.user.displayName ?? 'NULL', style: TextStyle(fontFamily: 'SairaM', fontSize: 25.0 ),),
+                    Text( user.displayName ?? 'NULL', style: TextStyle(fontFamily: 'SairaM', fontSize: 25.0 ),),
                     InkWell(
                         onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ProfileEditPage())); },
                         child: Text('Change Profile',
@@ -41,7 +48,7 @@ class _MyPageState extends State<MyPage> {
                               decoration: TextDecoration.underline
                           ),))
                   ],
-                  )
+                )
                 ),
                 Container(
                     width: 60.0,
@@ -51,8 +58,8 @@ class _MyPageState extends State<MyPage> {
                         image: new DecorationImage(
                             fit: BoxFit.fill,
                             image: new NetworkImage(
-                              AuthProvider.of(context).auth.user.imgUrl ??
-                                'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg')
+                                user.imgUrl ??
+                                    'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg')
                         )
                     )),
               ],
@@ -68,7 +75,7 @@ class _MyPageState extends State<MyPage> {
                     child: Row(
                       children: <Widget>[
                         Expanded(child: Text('My Prize', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                        Text('\$ '+ AuthProvider.of(context).auth.user.prize.toString(), style: TextStyle(fontFamily: 'SairaR', fontSize: 18.0 )),
+                        Text('\$ '+ user.prize.toString(), style: TextStyle(fontFamily: 'SairaR', fontSize: 18.0 )),
                         Icon(Icons.chevron_right)
                       ],
                     ),
@@ -80,7 +87,7 @@ class _MyPageState extends State<MyPage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(child: Text('Phone #', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                      Text( AuthProvider.of(context).auth.user.phone ?? "No Phone #" , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
+                      Text( user.phone?? "No Phone #" , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
                     ],
                   ),
                 ),
@@ -90,7 +97,7 @@ class _MyPageState extends State<MyPage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(child: Text('E-Mail', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                      Text( AuthProvider.of(context).auth.user.email ?? 'Email' , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
+                      Text( user.email ?? 'Email' , style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
                     ],
                   ),
                 ),
@@ -100,7 +107,7 @@ class _MyPageState extends State<MyPage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(child: Text('Recommand Code', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                      Text( AuthProvider.of(context).auth.user.uid.substring(20) ?? "NULL", style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
+                      Text( user.uid.substring(20) ?? "NULL", style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
                     ],
                   ),
                 ),

@@ -16,7 +16,7 @@ class GameUser {
       : this.fromMap(snapshot.data, ref: snapshot.reference);
 
   GameUser.fromMap(Map<String, dynamic> map, {this.ref})
-      : displayName = map['name'],
+      : displayName = map['displayName'],
         prize = map['prize'],
         email = map['email'],
         imgUrl = map['imgUrl'],

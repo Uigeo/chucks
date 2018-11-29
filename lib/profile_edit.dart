@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:chucks/auth_provider.dart';
+import 'package:chucks/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_picker/flutter_picker.dart';
@@ -29,63 +30,8 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white.withOpacity(0.0),
-        elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black),
-      ),
-      key: scaffoldKey,
-      body: Container(
-        padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text('Profile', style: TextStyle(fontSize: 30.0, fontFamily: 'SairaM' ),  ),
-            SizedBox(height: 20.0,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                _previewImage(),
-              ],
-            ),
-            SizedBox(height: 30.0,),
-            Text('Display Name', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
-            TextFormField(
-              initialValue: AuthProvider.of(context).auth.user.displayName ?? "DisplayName",
-            ),
-            SizedBox(height: 50.0,),
-            Text('Phone #', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
-            Container(
-              padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
-              decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey)) ),
-              child: InkWell(
-                onTap: (){ showGenderPicker(context); },
-                child: Row(
-                  children: <Widget>[
-                    Expanded(child: Text('Gender', style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0))),
-                    Text( selectedGender ?? 'NoData' , style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0 )),
-                  ],
-                ),
-              ),
-            ),
-
-            SizedBox(height: 20.0,),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: FlatButton(
-                      onPressed: (){},
-                      child: Text('Save', style: TextStyle(fontFamily: 'SairaM', fontSize: 20.0, color: Colors.white),),
-                      color: Colors.deepPurpleAccent,
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+    GameUser user = AuthProvider.of(context).auth.gameUser;
+    return _buildBody(context, user);
   }
 
   void _onImageButtonPressed(ImageSource source) {
@@ -96,7 +42,7 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
 
 
 
-  Widget _previewImage() {
+  Widget _previewImage(String imgUrl) {
     return FutureBuilder<File>(
         future: _imageFile,
         builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
@@ -109,7 +55,7 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
               textAlign: TextAlign.center,
             );
           } else {
-            return _circleNetworkImage( AuthProvider.of(context).auth.user.imgUrl ??
+            return _circleNetworkImage( imgUrl ??
             'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg');
           }
         });
@@ -196,7 +142,65 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
     picker.show(scaffoldKey.currentState);
   }
 
+  Widget _buildBody(BuildContext context, user){
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white.withOpacity(0.0),
+        elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      key: scaffoldKey,
+      body: Container(
+        padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Profile', style: TextStyle(fontSize: 30.0, fontFamily: 'SairaM' ),  ),
+            SizedBox(height: 20.0,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _previewImage(user.imgUrl),
+              ],
+            ),
+            SizedBox(height: 30.0,),
+            Text('Display Name', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
+            TextFormField(
+              initialValue: user.displayName ?? "DisplayName",
+            ),
+            SizedBox(height: 50.0,),
+            Text('Phone #', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
+            Container(
+              padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
+              decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey)) ),
+              child: InkWell(
+                onTap: (){ showGenderPicker(context); },
+                child: Row(
+                  children: <Widget>[
+                    Expanded(child: Text('Gender', style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0))),
+                    Text( selectedGender ?? 'NoData' , style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0 )),
+                  ],
+                ),
+              ),
+            ),
 
+            SizedBox(height: 20.0,),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: FlatButton(
+                    onPressed: (){},
+                    child: Text('Save', style: TextStyle(fontFamily: 'SairaM', fontSize: 20.0, color: Colors.white),),
+                    color: Colors.deepPurpleAccent,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
 
 }
 

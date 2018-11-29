@@ -33,7 +33,7 @@ class _GameStartButtonState extends State<GameStartButton> {
       onPressed:  gameCreated ? gameStarting ? (){ Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) ); }
                       : null
           : (){
-            _createGame();
+            //_createGame();
             Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) );
             },
       child: widget.currentTime.minute < 1 ? Text('Waiting', style: TextStyle(
@@ -50,16 +50,16 @@ class _GameStartButtonState extends State<GameStartButton> {
     );
   }
 
-  _createGame() async {
-    await Firestore.instance.collection('games').add(
-      {
-        'start' : DateTime.now(),
-        'end' : DateTime.now().add(Duration(minutes: 3)),
-        'hostuid' : AuthProvider.of(context).auth.user.uid,
-        'participant' : [],
-        'winner' : [],
-      }
-    );
-  }
+//  _createGame() async {
+//    await Firestore.instance.collection('games').add(
+//      {
+//        'start' : DateTime.now(),
+//        'end' : DateTime.now().add(Duration(minutes: 3)),
+//        'hostuid' : AuthProvider.of(context).auth.,
+//        'participant' : [],
+//        'winner' : [],
+//      }
+//    );
+//  }
 
 }
