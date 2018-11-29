@@ -107,7 +107,7 @@ class _MyPageState extends State<MyPage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(child: Text('Recommand Code', style: TextStyle(fontFamily: 'SairaL', fontSize: 18.0))),
-                      Text( user.uid.substring(20) ?? "NULL", style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
+                      Text( user.uid.substring(21) ?? "NULL", style: TextStyle(fontFamily: 'SairaT', fontSize: 18.0 )),
                     ],
                   ),
                 ),
