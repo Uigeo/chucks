@@ -3,35 +3,43 @@ import 'dart:io';
 
 import 'package:chucks/auth_provider.dart';
 import 'package:chucks/model/user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_picker/flutter_picker.dart';
 
 
 class ProfileEditPage extends StatefulWidget {
+  final GameUser user;
+  ProfileEditPage({Key key, this.user}) : super( key : key );
+
   @override
   _ProFileEditPageState createState() {
-    return _ProFileEditPageState();
+    return _ProFileEditPageState(user: user,
+        nameControl: TextEditingController(text:user.displayName),
+        phoneControl: TextEditingController( text:user.phone)
+    );
   }
 
 }
 
 class _ProFileEditPageState extends State<ProfileEditPage> {
+  final GameUser user;
+  TextEditingController nameControl;
+  TextEditingController phoneControl;
+  _ProFileEditPageState({Key key, this.user, this.nameControl, this.phoneControl});
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  final gender = ["Male", "Female"];
-  final bornyear = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((y)=>y+1960).toList();
 
-  String selectedGender;
-  int selectedBornyear;
+
 
 
   Future<File> _imageFile;
 
   @override
   Widget build(BuildContext context) {
-    GameUser user = AuthProvider.of(context).auth.gameUser;
-    return _buildBody(context, user);
+
+    return _buildBody(context, widget.user);
   }
 
   void _onImageButtonPressed(ImageSource source) {
@@ -109,40 +117,8 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
     );
   }
 
-  showGenderPicker(BuildContext context) {
-    Picker picker = new Picker(
-        adapter: PickerDataAdapter<String>(pickerdata: gender),
-        changeToFirst: true,
-        textAlign: TextAlign.left,
-        columnPadding: const EdgeInsets.all(8.0),
-        onConfirm: (Picker picker, List value) {
-          print(value.toString());
-          print(picker.getSelectedValues());
-          setState(() {
-            selectedGender = picker.getSelectedValues()[0];
-          });
-        }
-    );
-    picker.show(scaffoldKey.currentState);
-  }
-  showBornYearPicker(BuildContext context) {
-    Picker picker = new Picker(
-        adapter: PickerDataAdapter<int>(pickerdata: bornyear),
-        changeToFirst: true,
-        textAlign: TextAlign.left,
-        columnPadding: const EdgeInsets.all(8.0),
-        onConfirm: (Picker picker, List value) {
-          print(value.toString());
-          print(picker.getSelectedValues());
-          setState(() {
-            selectedBornyear= picker.getSelectedValues()[0];
-          });
-        }
-    );
-    picker.show(scaffoldKey.currentState);
-  }
 
-  Widget _buildBody(BuildContext context, user){
+  Widget _buildBody(BuildContext context, GameUser user){
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white.withOpacity(0.0),
@@ -166,21 +142,14 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
             SizedBox(height: 30.0,),
             Text('Display Name', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
             TextFormField(
-              initialValue: user.displayName ?? "DisplayName",
+              controller: this.nameControl,
             ),
             SizedBox(height: 50.0,),
             Text('Phone #', style: TextStyle(fontSize: 20.0, fontFamily: 'SairaM' ),  ),
             Container(
               padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
-              decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey)) ),
-              child: InkWell(
-                onTap: (){ showGenderPicker(context); },
-                child: Row(
-                  children: <Widget>[
-                    Expanded(child: Text('Gender', style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0))),
-                    Text( selectedGender ?? 'NoData' , style: TextStyle(fontFamily: 'SairaT', fontSize: 20.0 )),
-                  ],
-                ),
+              child:  TextFormField(
+                controller:  this.phoneControl,
               ),
             ),
 
@@ -189,7 +158,7 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
               children: <Widget>[
                 Expanded(
                   child: FlatButton(
-                    onPressed: (){},
+                    onPressed: _save,
                     child: Text('Save', style: TextStyle(fontFamily: 'SairaM', fontSize: 20.0, color: Colors.white),),
                     color: Colors.deepPurpleAccent,
                   ),
@@ -200,6 +169,13 @@ class _ProFileEditPageState extends State<ProfileEditPage> {
         ),
       ),
     );
+  }
+
+  _save(){
+    user.ref.updateData({
+      'phone' : phoneControl.text,
+      'displayName' : nameControl.text
+    });
   }
 
 }

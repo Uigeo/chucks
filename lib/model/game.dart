@@ -4,12 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Game {
   DocumentReference ref;
   final DateTime start;
+  final DateTime end;
   final int totalPrize;
   final int answer;
-  List<DocumentReference> participants;
-  List<GameUser> winners ;
+  final int winners;
 
-  Game( this.start, this.totalPrize, this.participants, this.winners, this.answer );
+
+  Game( this.start, this.totalPrize, this.answer, this.end, this.winners );
 
 
   Game.fromSnapshot(DocumentSnapshot snapshot)
@@ -17,6 +18,8 @@ class Game {
 
   Game.fromMap(Map<String, dynamic> map, {this.ref})
       : start = map['start'],
+        end = map['end'],
         totalPrize = map['totalPrize'],
-        answer = map['answer'];
+        answer = map['answer'],
+        winners = map['winners'];
 }

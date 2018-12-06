@@ -21,56 +21,115 @@ class _GameStartButtonState extends State<GameStartButton> {
 
   bool gameStarting = false;
   bool gameCreated = false;
+  DateTime date;
+  Game game;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    DateTime date = DateTime( widget.currentTime.year, widget.currentTime.month, widget.currentTime.day, widget.currentTime.hour,);
 
-    Firestore.instance.collection('games').where('start', isGreaterThan: date).getDocuments().then(
-        (query){
-          if(query.documents.length != 0) gameCreated = true;
-          else {
-            gameCreated = false;
-            Game game = Game.fromSnapshot(query.documents.first);
-            if(game.start.difference(widget.currentTime).inSeconds > 180) gameStarting = false;
-            else gameStarting = true;
-          }
-
-
-
-
-        }
-    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      color: Colors.pinkAccent,
-      onPressed:  gameCreated ? gameStarting ? _moveToGame() : null : _createGame(),
-      child: gameCreated ? gameStarting ? _textGoGame() : _textWaiting() : _textCreateGame(),
+//    print("Created : " + gameCreated.toString()+ "  "+  widget.currentTime.toString());
+//    print("Starting : " + gameStarting.toString() );
+
+
+
+    return StreamBuilder<DateTime>(
+        stream: Firestore.instance.collection('games').limit(1).orderBy('start', descending: true).snapshots().map(
+                (event){ return event.documents.first.data['start']; }
+        ),
+        builder: (BuildContext context, AsyncSnapshot<DateTime> snapshot){
+
+
+          this.date = DateTime( widget.currentTime.year, widget.currentTime.month, widget.currentTime.day, widget.currentTime.hour,0,0);
+
+          if(snapshot.data == null) return CircularProgressIndicator();
+          else {
+            DateTime gameTime = DateTime(snapshot.data.year, snapshot.data.month, snapshot.data.day, snapshot.data.hour,0,0);
+
+            if(this.date.difference(gameTime).inHours < 1){
+              gameCreated = true;
+            }
+            else {
+              gameCreated = false;
+            }
+
+            if(snapshot.data.difference(widget.currentTime).inSeconds < -180) gameStarting = false;
+            else gameStarting = true;
+
+            return RaisedButton(
+              color: Colors.pinkAccent,
+              onPressed:  gameCreated ? gameStarting ? (){ _moveToGame();} : null : (){_createGame();},
+              child: gameCreated ? gameStarting ? _textGoGame() : _textWaiting() : _textCreateGame(),
+            );
+          }
+        }
     );
+
+
   }
 
-  _createGame() async {
+  void _createGame() async {
     GameUser user = AuthProvider.of(context).auth.gameUser;
-    await Firestore.instance.collection('games').add(
+    DocumentReference gameRef = await Firestore.instance.collection('games').add(
       {
         'start' : DateTime.now(),
         'end' : DateTime.now().add(Duration(minutes: 3)),
+        'totalPrize' : 400,
         'hostuid' : user.uid,
-        'participant' : <DocumentReference>[user.ref],
-        'winner' : [],
+        'answer' : 0,
+        'winners' : 0
       }
     );
-    Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) );
+    DocumentReference partRef = await Firestore.instance.document(gameRef.path).collection('participant').add({
+      'userRef' : user.ref,
+      'win' : false,
+      'answer' : 0,
+      'displayName' : user.displayName,
+      'imgUrl' : user.imgUrl,
+    });
+
+    Firestore.instance.document(user.ref.path).collection('history').add(
+      {
+        'gameRef' : gameRef,
+        'fingers' : 0,
+        'win' : false,
+      }
+    );
+
+    Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage( gameRef: gameRef, participantRef: partRef,)) );
   }
 
-  _moveToGame(){
-    Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) );
+  void _moveToGame() async {
+
+    GameUser user = AuthProvider.of(context).auth.gameUser;
+
+    QuerySnapshot query = await Firestore.instance.collection('games').limit(1).orderBy('start', descending: true).snapshots().first;
+    DocumentReference gameRef = query.documents.first.reference;
+
+    DocumentReference partRef = await Firestore.instance.collection( gameRef.path + '/participant').add(
+      {
+        'userRef' : user.ref,
+        'win' : false,
+        'answer' : 0,
+        'displayName' : user.displayName,
+        'imgUrl' : user.imgUrl,
+      }
+    );
+    Firestore.instance.collection( user.ref.path + '/history').add(
+        {
+          'gameRef' : gameRef,
+          'fingers' : 0,
+          'win' : false,
+        }
+    );
+    Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage( gameRef: gameRef, participantRef: partRef, )) );
   }
+
 
   Widget _textWaiting(){
     return Text('Waiting', style: TextStyle(
@@ -86,7 +145,7 @@ class _GameStartButtonState extends State<GameStartButton> {
         fontFamily: 'SairaR',
         color: Colors.white,
         fontSize: 18.0
-    ),
+      ),
     );
   }
 

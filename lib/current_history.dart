@@ -1,24 +1,7 @@
+import 'package:chucks/model/game.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-class GameInfo {
-  final DateTime time;
-  final int totlaprize;
-  final int participants;
-  final int winner;
-  double prize;
-
-  GameInfo( this.time, this.totlaprize, this.participants, this.winner ){
-    this.prize = this.totlaprize / this.winner;
-  }
-}
-
-List<GameInfo> sampledata = [
-  GameInfo( DateTime(2018, 11, 15, 18, 02), 700, 200,4  ),
-  GameInfo( DateTime(2018, 11, 15, 19, 05), 400, 120,3  ),
-  GameInfo( DateTime(2018, 11, 15, 20, 10), 970, 300,7  ),
-  GameInfo( DateTime(2018, 11, 15, 21, 22), 777, 120,11 ),
-].toList();
-
+import 'package:chucks/victory.dart';
 
 class CurrentHistoryPage extends StatefulWidget {
   @override
@@ -33,16 +16,31 @@ class _CurrentHistoryPageState extends State<CurrentHistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
 
-        children: sampledata.map(
-          (info) =>_buildHistoryTile(context, info)
-        ).toList(),
+    return FutureBuilder<List<Game>>(
+        future: Firestore.instance.collection('games').orderBy('start', descending: true).limit(6).getDocuments().then(
+            (query){ return query.documents.map( (snapshot){ return Game.fromSnapshot(snapshot); }  ).toList(); }
+        ) ,
+        builder: (BuildContext context, AsyncSnapshot<List<Game>> snapshot){
+          return (snapshot.data == null) ? _buildWaiting() : Column(
+            children: snapshot.data.map(
+                    (game) =>_buildHistoryTile(context, game)
+            ).toList(),
+          );
+        },
+
+    );
+  }
+
+  Widget _buildWaiting() {
+    return Container(
+      alignment: Alignment.center,
+      child: CircularProgressIndicator(),
     );
   }
 
 
-  Widget _buildHistoryTile(BuildContext context, GameInfo info){
+  Widget _buildHistoryTile(BuildContext context, Game game){
     return Container(
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(color: Colors.black12)),
@@ -50,7 +48,7 @@ class _CurrentHistoryPageState extends State<CurrentHistoryPage> {
       child: Stack(
         children: <Widget>[
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
                 padding: EdgeInsets.fromLTRB(40.0, 15.0, 40.0, 15.0),
@@ -58,8 +56,8 @@ class _CurrentHistoryPageState extends State<CurrentHistoryPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    Text('${info.time.year}.${info.time.month}.${info.time.day}', style: TextStyle( color: Colors.grey, fontFamily: 'SairaR', fontSize: 15.0 ), ),
-                    Text('${info.time.hour}.${info.time.minute}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaM', fontSize: 20.0 ),)
+                    Text('${game.start.year}.${game.start.month}.${game.start.day}', style: TextStyle( color: Colors.grey, fontFamily: 'SairaR', fontSize: 15.0 ), ),
+                    Text('${game.start.hour}.${game.start.minute}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaM', fontSize: 20.0 ),)
                   ],
                 ),
               ),
@@ -71,12 +69,15 @@ class _CurrentHistoryPageState extends State<CurrentHistoryPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Total Prize : ${info.totlaprize}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaM', fontSize: 15.0 ), ),
-                    Text('Participant : ${info.participants}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaL', fontSize: 15.0 ), ),
-                    Text('Winners : ${info.winner}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaL', fontSize: 15.0 ), ),
+                    Text('Total Prize : ${game.totalPrize}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaM', fontSize: 15.0 ), ),
+                    Text('Each Prize : ${ (game.winners == null || game.winners == 0) ? 0 : (game.totalPrize / game.winners).round()}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaL', fontSize: 15.0 ), ),
+                    Text('Winners : ${game.winners}', style: TextStyle( color: Colors.black87, fontFamily: 'SairaL', fontSize: 15.0 ), ),
                   ],
                 ),
               ),
+              IconButton(icon: Icon(Icons.chevron_right, color: Colors.teal, ), onPressed: (){
+                Navigator.of(context).push( MaterialPageRoute(builder: (_)=>VictoryPage(gameRef: game.ref,) ) );
+              } )
             ],
           ),
           Padding(

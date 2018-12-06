@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:chucks/advertise.dart';
 import 'package:chucks/auth_provider.dart';
 import 'package:chucks/current_history.dart';
-import 'package:chucks/gameplay.dart';
-import 'package:chucks/login.dart';
+import 'package:chucks/game_start.dart';
 import 'package:chucks/main.dart';
 import 'package:chucks/model/user.dart';
 import 'package:chucks/mypage.dart';
@@ -11,7 +11,6 @@ import 'package:chucks/notification.dart';
 import 'package:chucks/rank.dart';
 import 'package:chucks/victory.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -140,21 +139,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: 150.0,
                   height: 50.0,
-                  child: RaisedButton(
-                    color: Colors.pinkAccent,
-                    onPressed:  _currentTime.minute < 1 ? null : (){ Navigator.of(context).push( MaterialPageRoute(builder: (_)=>GamePlayPage()) ); },
-                    child: _currentTime.minute < 1 ? Text('Waiting', style: TextStyle(
-                        fontFamily: 'SairaR',
-                        color: Colors.white,
-                        fontSize: 18.0
-                    ),
-                    ) : Text('Let Go', style: TextStyle(
-                        fontFamily: 'SairaR',
-                        color: Colors.white,
-                        fontSize: 18.0
-                    ),
-                    ),
-                  ),
+                  child: GameStartButton( currentTime: _currentTime),
                 ),
                 SizedBox(height: 30.0,),
                 Container(
@@ -174,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                                   shape: BoxShape.circle,
                                   image: new DecorationImage(
                                       fit: BoxFit.fill,
-                                      image: new NetworkImage( user.imgUrl ?? "lkj")
+                                      image: new NetworkImage( user.imgUrl ?? "")
 
                                   )
                               )),
@@ -222,7 +207,11 @@ class _HomePageState extends State<HomePage> {
                 ListTile(leading: Icon(Icons.description), title: Text('Rule') ,onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (_)=>VictoryPage()));
                 },),
-                ListTile(leading: Icon(Icons.help), title: Text('FAQ') ,onTap: (){},),
+                ListTile(leading: Icon(Icons.help), title: Text('FAQ') ,onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>AdvertisementPage(
+                    gameRef: Firestore.instance.document('/games/-LT1U71esplK1luFdTaj')
+                  )));
+                },),
                 ListTile(leading: Icon(Icons.exit_to_app), title: Text('Log Out') ,onTap: (){
                   AuthProvider.of(context).auth.singOut();
                   widget.onSignedOut();

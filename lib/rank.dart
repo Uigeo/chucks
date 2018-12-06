@@ -1,3 +1,5 @@
+import 'package:chucks/model/user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Userdata {
@@ -42,64 +44,69 @@ class _RankPageState extends State<RankPage> {
 
   @override
   Widget build(BuildContext context) {
-      return Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [ const Color(0xFFf5576c), const Color(0x88f093fb)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )
-        ),
-        child: Scaffold(
-          backgroundColor: Color(0x00000000),
-          appBar: AppBar(
-            title: Text("RANK", style: TextStyle(fontFamily: 'SairaB'),),
-            centerTitle: true,
-            backgroundColor: Color(0x00FFFFFF),
-            elevation: 0.0,
-            leading: IconButton(icon: Icon(Icons.chevron_left), onPressed: (){ Navigator.pop(context); }),
-          ),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
 
-            children: <Widget>[
-              SizedBox(height: 60.0,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: sampledata.sublist(0,3).map( (d){
-                  if(i%3 == 1) i =1;
-                  return _highRank(context, d.imgUrl, d.name, d.prize, i++);} ).toList(),
+      return FutureBuilder<List<GameUser>>(
+          future: Firestore.instance.collection('users').orderBy('totalPrize', descending: true ).getDocuments().then(
+                  (query){ return query.documents.map( (snapshot){return GameUser.fromSnapshot(snapshot);} ).toList(); } ) ,
+          builder: (BuildContext context, AsyncSnapshot<List<GameUser>> snapshot){
+            return Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [ const Color(0xFFf5576c), const Color(0x88f093fb)],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  )
               ),
-              SizedBox(height: 60.0,),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Container(
-                        child: _headerbar(),
-                    ),
-                  ),
-                ],
-              ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(color: Color(0xFFe7e7e7)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
-                    child: ListView(
-                      shrinkWrap: true,
-                      children: sampledata.sublist(3).map((d){
-                        if(j > sampledata.length) j =4;
-                        return _rankTile(d.imgUrl, d.name, d.prize, j++);
-                      }).toList()
-                    ),
-                  ),
+              child: Scaffold(
+                backgroundColor: Color(0x00000000),
+                appBar: AppBar(
+                  title: Text("RANK", style: TextStyle(fontFamily: 'SairaB'),),
+                  centerTitle: true,
+                  backgroundColor: Color(0x00FFFFFF),
+                  elevation: 0.0,
+                  leading: IconButton(icon: Icon(Icons.chevron_left), onPressed: (){ Navigator.pop(context); }),
                 ),
-              )
+                body: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
 
-            ],
-          ),
-        ),
-
+                  children: <Widget>[
+                    SizedBox(height: 60.0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: (snapshot.data == null) ? [_buildWaiting()] : snapshot.data.sublist(0,3).map( (d){
+                        if(i%3 == 1) i =1;
+                        return _highRank(context, d.imgUrl, d.displayName, d.totalPrize, i++);} ).toList(),
+                    ),
+                    SizedBox(height: 60.0,),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            child: _headerbar(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(color: Color(0xFFe7e7e7)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 15.0),
+                          child: ListView(
+                              shrinkWrap: true,
+                              children: (snapshot.data == null) ? [_buildWaiting()] : snapshot.data.sublist(3).map((d){
+                                if(j > snapshot.data.length) j =4;
+                                return _rankTile(d.imgUrl, d.displayName, d.prize, j++);
+                              }).toList()
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
       );
   }
 
@@ -140,7 +147,7 @@ class _RankPageState extends State<RankPage> {
             Container(
               height: 40.0,
               width :  40.0,
-              decoration: BoxDecoration( color: Colors.white, shape: BoxShape.circle, image: DecorationImage(fit: BoxFit.fill, image: NetworkImage(imgUrl)) ) ,
+              decoration: BoxDecoration( color: Colors.white, shape: BoxShape.circle, image: DecorationImage(fit: BoxFit.fill, image: NetworkImage( imgUrl ?? "" )) ) ,
             ),
             SizedBox(width: 20.0,),
             Text(name, style: TextStyle(color: Colors.black, fontFamily: 'SairaR', fontSize: 15.0 ),),
@@ -168,7 +175,7 @@ class _RankPageState extends State<RankPage> {
               Container(
                 height: 100.0,
                 width: 100.0,
-                decoration: BoxDecoration( color: Colors.black26, shape: BoxShape.circle, image: DecorationImage(fit: BoxFit.fill, image: NetworkImage(imgUrl)) ) ,
+                decoration: BoxDecoration( color: Colors.black26, shape: BoxShape.circle, image: DecorationImage(fit: BoxFit.fill, image: NetworkImage(imgUrl ?? "")) ) ,
               ),
               Container(
                 height: 30.0,
@@ -194,6 +201,13 @@ class _RankPageState extends State<RankPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildWaiting() {
+    return Container(
+      alignment: Alignment.center,
+      child: CircularProgressIndicator(),
     );
   }
 

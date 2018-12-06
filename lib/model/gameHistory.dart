@@ -6,7 +6,6 @@ class GameHistory {
   final DocumentReference ref;
   final DocumentReference gameRef;
   final int fingers;
-  final int prize;
   final int answer;
   final bool win;
 
@@ -15,7 +14,6 @@ class GameHistory {
 
   GameHistory.fromMap(Map<String, dynamic> map, {this.ref})
       : gameRef = map['gameRef'],
-        prize = map['prize'],
         win = map['win'],
         fingers = map['fingers'],
         answer = map['answer'];

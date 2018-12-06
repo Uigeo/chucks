@@ -41,7 +41,7 @@ class _MyPageState extends State<MyPage> {
                   children: <Widget>[
                     Text( user.displayName ?? 'NULL', style: TextStyle(fontFamily: 'SairaM', fontSize: 25.0 ),),
                     InkWell(
-                        onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ProfileEditPage())); },
+                        onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ProfileEditPage( user : user ))); },
                         child: Text('Change Profile',
                           style: TextStyle(
                               fontFamily: 'SairaL',

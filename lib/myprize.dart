@@ -1,3 +1,4 @@
+import 'package:chucks/auth_provider.dart';
 import 'package:flutter/material.dart';
 
 class MyPrizePage extends StatefulWidget {
@@ -10,10 +11,14 @@ class MyPrizePage extends StatefulWidget {
 
 class _MyPirzePageState extends State<MyPrizePage> {
 
-  int prize =3123;
+  int prize;
+  int totalPrize;
 
   @override
   Widget build(BuildContext context) {
+    prize = AuthProvider.of(context).auth.gameUser.prize;
+    totalPrize = AuthProvider.of(context).auth.gameUser.totalPrize;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white.withOpacity(0.0),
@@ -41,7 +46,7 @@ class _MyPirzePageState extends State<MyPrizePage> {
                   ),
                   SizedBox(height: 30.0,),
                   Text(prize.toString() + " \$", style: TextStyle( color: Colors.black, fontSize: 40.0, fontFamily: 'SairaM', ),),
-                  Text( "Cumulative  "+ prize.toString() + "\$", style: TextStyle( color: Colors.black, fontSize: 15.0, fontFamily: 'SairaL', ),),
+                  Text( "Cumulative  "+ totalPrize.toString() + "\$", style: TextStyle( color: Colors.black, fontSize: 15.0, fontFamily: 'SairaL', ),),
                   SizedBox(height: 70.0,),
                   Row(
                     children: <Widget>[

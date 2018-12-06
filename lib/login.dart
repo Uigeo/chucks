@@ -22,25 +22,16 @@ class _LoginPageState extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Colors.white.withOpacity(0.0),
       body: Container(
         // Add box decoration
         decoration: BoxDecoration(
-          // Box decoration takes a gradient
-          gradient: LinearGradient(
-            // Where the linear gradient begins and ends
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0.1, 0.5, 0.7, 0.9],
-            colors: [
-              // Colors are easy thanks to Flutter's Colors class.
-              Colors.indigo[800],
-              Colors.indigo[700],
-              Colors.indigo[600],
-              Colors.indigo[400],
-            ],
-          ),
-        ),
+      gradient: LinearGradient(
+      colors: [ const Color(0x88330867), const Color(0xFF30cfd0)],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    )
+    ),
         child: new Padding(
             padding: const EdgeInsets.all(20.0),
             child: new Column(
@@ -48,25 +39,16 @@ class _LoginPageState extends State<LoginPage>{
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
 
+                SizedBox(height: 20.0,),
+                Image.network("https://firebasestorage.googleapis.com/v0/b/chucks-da9d1.appspot.com/o/good.png?alt=media&token=ab168502-7993-49ba-994a-98f02e1e1c2c", height: 120.0,),
 
-                Center(
-                  child: Text(
-                    "TWO",
-                    style: new TextStyle(
-                      color: Colors.white,
-                      fontSize: 45.0,
-                      fontWeight: FontWeight.w300,
-                      letterSpacing: 0.3,
-                    ),
-                  ),
-                ),
                 Center(
                   child: Text(
                     "CHUCKS",
                     style: new TextStyle(
                       color: Colors.white,
                       fontSize: 45.0,
-                      fontWeight: FontWeight.w300,
+                      fontFamily: 'SairaB',
                       letterSpacing: 0.3,
                     ),
                   ),
@@ -75,24 +57,35 @@ class _LoginPageState extends State<LoginPage>{
                 new Padding(
                   padding: const EdgeInsets.all(20.0),
                 ),
-                new OutlineButton(
-                    child: new Text(
-                      "Sign In",
-                      style: new TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 0.3,
+                Padding(
+                  padding: const EdgeInsets.all(40.0),
+                  child: new FloatingActionButton(
+                      backgroundColor: Colors.white,
+                      child:  Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.network('https://firebasestorage.googleapis.com/v0/b/chucks-da9d1.appspot.com/o/googlelogo.png?alt=media&token=d548d813-d389-4c12-ba7d-48b2d55a9aa2', height: 40.0,),
+                          SizedBox(width: 20.0,),
+                          Text(
+                            "Sign In with Google",
+                            style: new TextStyle(
+                              color: Colors.black87,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w300,
+                              letterSpacing: 0.3,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    onPressed: () => AuthProvider.of(context).auth.signIn()
-                        .then(
-                            (FirebaseUser user) {
-                          print(user);
-                          widget.onSignedIn();
-                        })
-                        .catchError((e)=>print(e)),
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
+                      onPressed: () => AuthProvider.of(context).auth.signIn()
+                          .then(
+                              (FirebaseUser user) {
+                            print(user);
+                            widget.onSignedIn();
+                          })
+                          .catchError((e)=>print(e)),
+                      shape: BeveledRectangleBorder()
+                  ),
                 ),
 
                 new Padding(

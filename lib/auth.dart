@@ -32,6 +32,7 @@ class Auth {
                     'displayName' : user.displayName,
                     'imgUrl' : defaultImgUrl,
                     'prize' : 0,
+                    'totalPrzie' : 0
                   });
                 }
             );
