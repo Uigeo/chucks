@@ -6,8 +6,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
 
-  LoginPage({this.onSignedIn});
+  LoginPage({this.onSignedIn, this.loading});
   final VoidCallback onSignedIn;
+  final VoidCallback loading;
 
   @override
   _LoginPageState createState() {
@@ -40,7 +41,7 @@ class _LoginPageState extends State<LoginPage>{
               children: <Widget>[
 
                 SizedBox(height: 20.0,),
-                Image.network("https://firebasestorage.googleapis.com/v0/b/chucks-da9d1.appspot.com/o/good.png?alt=media&token=ab168502-7993-49ba-994a-98f02e1e1c2c", height: 120.0,),
+                Image.asset("good.png", height: 120.0,),
 
                 Center(
                   child: Text(
@@ -58,32 +59,34 @@ class _LoginPageState extends State<LoginPage>{
                   padding: const EdgeInsets.all(20.0),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: new FloatingActionButton(
-                      backgroundColor: Colors.white,
+                  padding: const EdgeInsets.all(60.0),
+                  child: new OutlineButton(
+
                       child:  Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Image.network('https://firebasestorage.googleapis.com/v0/b/chucks-da9d1.appspot.com/o/googlelogo.png?alt=media&token=d548d813-d389-4c12-ba7d-48b2d55a9aa2', height: 40.0,),
                           SizedBox(width: 20.0,),
                           Text(
                             "Sign In with Google",
                             style: new TextStyle(
-                              color: Colors.black87,
+                              color: Colors.white,
                               fontSize: 20.0,
-                              fontWeight: FontWeight.w300,
+                              fontFamily: 'SairaM',
                               letterSpacing: 0.3,
                             ),
                           ),
                         ],
                       ),
-                      onPressed: () => AuthProvider.of(context).auth.signIn()
-                          .then(
-                              (FirebaseUser user) {
-                            print(user);
-                            widget.onSignedIn();
-                          })
-                          .catchError((e)=>print(e)),
+                      onPressed: (){
+                        widget.loading();
+                        AuthProvider.of(context).auth.signIn()
+                            .then(
+                                (FirebaseUser user) {
+                              print(user);
+                              widget.onSignedIn();
+                            })
+                            .catchError((e)=>print(e));
+                      },
                       shape: BeveledRectangleBorder()
                   ),
                 ),

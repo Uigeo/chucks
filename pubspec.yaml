@@ -17,9 +17,8 @@ dependencies:
   firebase_auth:
   flutter:
     sdk: flutter
+  audioplayers: ^0.7.8
   image_picker: ^0.4.10
-  flutter_picker:
-    git: git://github.com/yangyxd/flutter_picker.git
   cloud_firestore: ^0.8.0
 
   # The following adds the Cupertino Icons font to your application.
@@ -88,11 +87,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
-assets:
-  - assets/good.png
-  - assets/cover.jpg
-  - assets/cover2.jpg
-  - assets/cover3.jpg
-  - assets/cover4.jpg
-  - assets/cover5.jpg
-  - assets/googlelogo.png
+  assets:
+    - assets/googlelogo.png
+    - assets/bgm/bgm.mp3
+    - good.png

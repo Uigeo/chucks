@@ -33,7 +33,6 @@ class _MyPageState extends State<MyPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-
             Row(
               children: <Widget>[
                 Expanded(child: Column(

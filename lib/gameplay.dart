@@ -6,7 +6,8 @@ import 'package:chucks/model/game.dart';
 import 'package:chucks/victory.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 class GamePlayPage extends StatefulWidget {
   final DocumentReference gameRef;
@@ -17,7 +18,6 @@ class GamePlayPage extends StatefulWidget {
   _GamePlayPageState createState() {
     return _GamePlayPageState();
   }
-
 }
 
 class _GamePlayPageState extends State<GamePlayPage> {
@@ -29,11 +29,18 @@ class _GamePlayPageState extends State<GamePlayPage> {
   Game game;
   bool loading = true;
 
+  AudioCache audioCache = new AudioCache();
+  Future<AudioPlayer> bgm;
   TextEditingController _answerController = new TextEditingController(text: 0.toString());
 
 
   bool leftfold = true;
   bool rightfold =true;
+
+  void _play(){
+    audioCache.play('bgm/bgm.mp3');
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -120,12 +127,16 @@ class _GamePlayPageState extends State<GamePlayPage> {
   @override
   void initState() {
     super.initState();
+    bgm = audioCache.play('bgm/bgm.mp3');
     _currentTime = DateTime.now();
     _timer = Timer.periodic(Duration(seconds: 1), _onTimeChange);
   }
 
   @override
   void dispose() {
+    bgm.then(
+        (file){ file.pause(); }
+    );
     _timer.cancel();
     _endTimer.cancel();
     _answerController.dispose();
@@ -431,8 +442,9 @@ class _GamePlayPageState extends State<GamePlayPage> {
               width: 140.0,
               child: Text('${minutes} : ${seconds}', style: TextStyle(color: Colors.white, fontSize: 50.0, fontFamily: 'SairaM',),)
           ),
+          SizedBox(height: 60.0,),
+          Image.asset( 'good.png', height: 160.0, ),
           SizedBox(height: 20.0,),
-          Image.asset('assets/good.png',height: 120.0,),
           _buildAnswer(context, game, this._remain.inSeconds ),
         ],
       );

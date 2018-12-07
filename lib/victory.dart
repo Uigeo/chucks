@@ -18,8 +18,8 @@ class _VictoryPageState extends State<VictoryPage>{
   @override
   Widget build(BuildContext context) {
 
-    return FutureBuilder<Game>(
-      future: widget.gameRef.get().then( (snapshot){return Game.fromSnapshot(snapshot); } ),
+    return StreamBuilder<Game>(
+      stream: widget.gameRef.snapshots().map( (snapshot){return Game.fromSnapshot(snapshot); } ),
       builder: (BuildContext context, AsyncSnapshot<Game> snapshot){
         return ( snapshot.data == null ) ? _buildWaitingScreen()
         : Container(
@@ -34,8 +34,6 @@ class _VictoryPageState extends State<VictoryPage>{
         );
       },
     );
-
-
   }
 
 

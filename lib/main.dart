@@ -1,5 +1,6 @@
 import 'package:chucks/auth.dart';
 import 'package:chucks/home.dart';
+import 'package:chucks/launching.dart';
 import 'package:chucks/login.dart';
 import 'package:flutter/material.dart';
 import 'package:chucks/auth_provider.dart';
@@ -85,6 +86,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _loading() {
+    print("LOADING");
+    setState(() {
+      authStatus = AuthStatus.notDetermined;
+    });
+  }
+
 
 
   @override
@@ -92,9 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
     print(authStatus);
     switch (authStatus) {
       case AuthStatus.notDetermined:
-        return _buildWaitingScreen();
+        return LaunchingPage();
       case AuthStatus.notSignedIn:
-        return LoginPage( onSignedIn: _signedIn);
+        return LoginPage( onSignedIn: _signedIn, loading: _loading,);
       case AuthStatus.signedIn:
         return HomePage( onSignedOut : _signedOut );
     }

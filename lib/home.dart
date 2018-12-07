@@ -4,6 +4,7 @@ import 'package:chucks/advertise.dart';
 import 'package:chucks/auth_provider.dart';
 import 'package:chucks/current_history.dart';
 import 'package:chucks/game_start.dart';
+import 'package:chucks/launching.dart';
 import 'package:chucks/main.dart';
 import 'package:chucks/model/user.dart';
 import 'package:chucks/mypage.dart';
@@ -205,7 +206,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ListTile(leading: Icon(Icons.description), title: Text('Rule') ,onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>VictoryPage()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LaunchingPage()));
                 },),
                 ListTile(leading: Icon(Icons.help), title: Text('FAQ') ,onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (_)=>AdvertisementPage(
